@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Program
 {
@@ -14,6 +15,11 @@ public class Program
 		Console.WriteLine(items.Contains(1));
 		Console.WriteLine(items.Contains(2));
 		Console.WriteLine(items.Contains(3));
+		var pitems = items.ToArray();
+		foreach (var i in pitems)
+		{
+			Console.WriteLine(i);
+		}
 	}
 }
 
@@ -104,5 +110,12 @@ public class Set<TItem>
 		}
 
 		return false;
+	}
+
+	public TItem[] ToArray()
+	{
+		TItem[] _temp = new TItem[_Size];
+		Array.Copy(_Items, 0, _temp, 0, _Size);
+		return _temp;
 	}
 }
