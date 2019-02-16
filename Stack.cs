@@ -4,19 +4,19 @@ public class Program
 {
 	public static void Main()
 	{
-		PStack ps = new PStack();
-		ps.Push(1);
-		ps.Push(2);
-		ps.Push(3);
+		PStack<string> ps = new PStack<string>();
+		ps.Push("A");
+		ps.Push("B");
+		ps.Push("C");
 		ps.PrintPStack();
 	}
 }
 
-public class PStack
+public class PStack<TItem>
 {
 	private static readonly int MAX = 1000;
 	private int top = -1;
-	private int[] stack = new int[MAX];
+	private TItem[] stack = new TItem[MAX];
 	public PStack()
 	{
 		top = -1;
@@ -27,7 +27,7 @@ public class PStack
 		return (top < 0);
 	}
 
-	public bool Push(int data)
+	public bool Push(TItem data)
 	{
 		if (top >= MAX)
 		{
@@ -41,17 +41,17 @@ public class PStack
 		}
 	}
 
-	public int Pop()
+	public TItem Pop()
 	{
 		if (top < 0)
 		{
 			//no items in stack
-			return 0;
+			return default(TItem);
 		}
 		else
 		{
 			//lifo
-			int data = stack[top--];
+			TItem data = stack[top--];
 			return data;
 		}
 	}
