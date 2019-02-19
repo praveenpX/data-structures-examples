@@ -25,7 +25,8 @@ public class Test
            
            for(int j = 0; j <input.Length; j++)
            {
-               int left = Convert.ToInt32(sChars[i]);
+              //in order to compare alphabets, get the decimal value of the alphabets and then compare and count  
+              int left = Convert.ToInt32(sChars[i]);
                int right = Convert.ToInt32(sChars[j]);
                
                if(left < right)
